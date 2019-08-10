@@ -30,6 +30,7 @@ app.use("/", hSetRespHeaders);
 app.use("/public", express.static(path.join(__dirname, "../public")));
 app.use("/src", express.static(path.join(__dirname, "../src")));
 app.use("/src/css", express.static(path.join(__dirname, "../src", "/css")));
+app.use("/admin", hLottoAdmin);
 serverLottery.use(["/admin", "/manager"], hLottoAdmin);
 serverLottery.use("/game/:gameid", hGetGameData); // "lotto/game/daily3-ca-us"
 // serverLottery.use("/", h404);
