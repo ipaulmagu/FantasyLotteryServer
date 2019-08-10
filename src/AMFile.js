@@ -37,8 +37,12 @@ module.exports = class File {
   static write(fname, data) {
     if (!fname || fname.length < 1) return -1;
     if (!data) return -2;
+    // console.log("Saving:...\n", data.substr(0, 100));
     const _data = new Uint8Array(Buffer.from(data));
-    fs.writeFileSync(fname, _data);
+    // console.log("Saving(_Buffer):...\n", _data.substr(0, 100));
+    let res = fs.writeFileSync(fname, _data, { encoding: "utf8", flag: "w" });
+    // console.log("Saved res:");
+
     // fs.writeFile(fname, _data, err => {
     //   if (err) throw err;
     //   console.log(`${fname} been written!`);
@@ -59,7 +63,7 @@ module.exports = class File {
     // fs.writeFileSync(fname,data)
     fs.writeFile(fname, data, err => {
       if (err) throw err;
-      console.log(`${fname} been saved!`);
+      console.log(`Success saving ${fname}!`);
     });
   }
 
