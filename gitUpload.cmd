@@ -1,4 +1,4 @@
-echo "# FantasyLotteryServer" >> README.md
+echo "# FantasyLotteryServer NODE::REST, WEbSockets API test" >> README.md
 git init
 git add .
 git add README.md
